@@ -33,7 +33,7 @@ public class playermove : MonoBehaviour
         
         velocity.z=speed;
         isGrounded= Physics.CheckSphere(groundcheck.position, grounddistance,groundmask);
-        deathwall= Physics.CheckCapsule(wallcheck.position, walldistance,badwallmask);
+        //deathwall= Physics.CheckCapsule(wallcheck.position, walldistance,badwallmask);
 
         if(isGrounded&& velocity.y<0)
         {
@@ -45,7 +45,10 @@ public class playermove : MonoBehaviour
         Vector3 move = transform.right*x;
 
         controller.Move(move*movespeed*Time.deltaTime);
-
+        if(Input.GetKey("w"))
+        {
+            speed=speed+0.01f;
+        }
         if(Input.GetButtonDown("Jump")&& isGrounded)
         {
             velocity.y=Mathf.Sqrt(jumpheight*-2f*gravity);
