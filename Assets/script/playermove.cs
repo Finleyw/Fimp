@@ -62,7 +62,7 @@ public class playermove : MonoBehaviour
             }
         }
 
-        float x =Input.GetAxis("Horizontal");
+        float x =-Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right*x;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - badwall
   - goodwall
+  - Bullet
   layers:
   - Default
   - TransparentFX
