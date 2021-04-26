@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class playermove : MonoBehaviour
 {
-
+    
+    
     public CharacterController controller;
     public GameObject player;
     public float movespeed= 12f;
@@ -23,39 +24,101 @@ public class playermove : MonoBehaviour
     bool isGrounded;
     bool deathwall;
     bool goodwall;
-    void Start()
-    {
-        
-    }
-    // Update is called once per frame
+    bool backwards=false;
+    int changedelay=0;
+    
+   
     void Update()
     {
-        
+        if(changedelay>0)
+        {
+            changedelay--;
+        }
+
         velocity.z=speed;
         isGrounded= Physics.CheckSphere(groundcheck.position, grounddistance,groundmask);
-        //deathwall= Physics.CheckCapsule(wallcheck.position, walldistance,badwallmask);
+        deathwall= Physics.CheckSphere(groundcheck.position, walldistance,badwallmask);
+        goodwall=Physics.CheckSphere(groundcheck.position, walldistance,goodwallmask);
 
         if(isGrounded&& velocity.y<0)
         {
             velocity.y=-2f;
         }
+
+        if(deathwall)
+        {           
+            SceneManager.LoadScene("Game");
+        }
+        if(goodwall)
+        {
+            if(Input.GetButtonDown("Jump")&& isGrounded==false);
+            {
+                velocity.y=Mathf.Sqrt(jumpheight*-2f*gravity);
+                float degrees=180;
+                Vector3 to =new Vector3(0,degrees,0);
+                transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, Time.deltaTime);
+                backwards=true;
+                change();
+            }
+        }
+
         float x =Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right*x;
 
         controller.Move(move*movespeed*Time.deltaTime);
-        if(Input.GetKey("w"))
-        {
-            speed=speed+0.01f;
-        }
+
+       
+
         if(Input.GetButtonDown("Jump")&& isGrounded)
         {
+            
             velocity.y=Mathf.Sqrt(jumpheight*-2f*gravity);
+
         }
 
         velocity.y += gravity*Time.deltaTime;
 
         controller.Move(velocity*Time.deltaTime);
+
+        if (backwards==true)
+        {
+            //Debug.Log(backwards);
+            if(Input.GetKey("w"))
+            {
+                speed=speed-0.01f;
+            }
+            
+           // speed= -speed;
+            
+        }
+
+        if (backwards==false)
+        {
+            if(Input.GetKey("w"))
+            {
+                speed=speed+0.01f;
+            }
+        }
+
+        
     }
+    
+    void change()
+    {
+            
+        if (changedelay==0)
+        {
+            Debug.Log(backwards);
+
+            speed= -speed;
+            changedelay=10;
+
+        }
+        
+            
+    }
+    
+    
 }
