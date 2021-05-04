@@ -35,7 +35,7 @@ public class playermove : MonoBehaviour
             changedelay--;
         }
 
-        velocity.z=speed;
+        
         isGrounded= Physics.CheckSphere(groundcheck.position, grounddistance,groundmask);
         deathwall= Physics.CheckSphere(groundcheck.position, walldistance,badwallmask);
         goodwall=Physics.CheckSphere(groundcheck.position, walldistance,goodwallmask);
@@ -93,7 +93,7 @@ public class playermove : MonoBehaviour
            // speed= -speed;
             
         }
-
+        velocity.z=speed;
         if (backwards==false)
         {
             if(Input.GetKey("w"))

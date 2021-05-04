@@ -47,20 +47,20 @@ public class Ememy : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         if(target.position.x > transform.position.x)
         {
-            transform.localScale = new Vector3(10,10,10);
+            transform.localScale = new Vector3(1,1,1);
         }
         else if(target.position.x < transform.position.x)
         {
-            transform.localScale = new Vector3(-10,10,10);
+            transform.localScale = new Vector3(-1,1,1);
         }
         
         if(target.position.z>transform.position.z)
         {
-            transform.localScale = new Vector3(10,10,10);
+            transform.localScale = new Vector3(1,1,1);
         }
         else if (target.position.z<transform.position.z)
         {
-            transform.localScale=new Vector3(10,10,-10);
+            transform.localScale=new Vector3(1,1,-1);
         }
     }
 }
