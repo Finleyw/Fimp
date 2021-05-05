@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5580979014135458035}
   - component: {fileID: 5580979014135458034}
   - component: {fileID: 5580979014135458037}
-  - component: {fileID: 5580979014135458032}
+  - component: {fileID: 3755463155946986924}
   m_Layer: 11
   m_Name: Enemyspawn
   m_TagString: Spawn
@@ -97,7 +97,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5580979014135458032
+--- !u!114 &3755463155946986924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,10 +106,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5580979014135458039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f1d3694c9751841b64f936abfe1e0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7718f6def69fd4d489fee9ed4090dc21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2637369062836036716, guid: aa48055d5cff17f479bb7c7fd7f9e050, type: 3}
+  enemy: {fileID: 611855064285148183, guid: 5008f3c0474d18343ad36372592deb96, type: 3}
   spawn1: {fileID: 5580979014343283464}
   spawn3: {fileID: 0}
 --- !u!1 &5580979014343283467
