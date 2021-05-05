@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class playermove : MonoBehaviour
 {
     
-    
+    public Text speedcounter;
     public CharacterController controller;
     public GameObject player;
     public float movespeed= 12f;
@@ -30,6 +31,7 @@ public class playermove : MonoBehaviour
    
     void Update()
     {
+        speedcounter.text=speed.ToString();
         if(changedelay>0)
         {
             changedelay--;
@@ -69,7 +71,11 @@ public class playermove : MonoBehaviour
 
         controller.Move(move*movespeed*Time.deltaTime);
 
-       
+       if(Input.GetKey("r"))
+       {
+            SceneManager.LoadScene("Game");
+  
+       }
 
         if(Input.GetButtonDown("Jump")&& isGrounded)
         {

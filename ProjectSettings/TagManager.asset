@@ -8,6 +8,7 @@ TagManager:
   - goodwall
   - Bullet
   - Spawn
+  - Bad
   layers:
   - Default
   - TransparentFX

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c35c5ee90e6aaf499163e5f43952284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: -2938172032002324453, guid: c07fbe941e316a4459455ea985213448, type: 3}
+  projectile: {fileID: -8042194269130376238, guid: 014cbdcd4484fe64b806033a110fa2cf, type: 3}
   barrelend: {fileID: 8372752397107038854}
   firespeed: 3000
 --- !u!1 &8372752396105726931

@@ -4,18 +4,51 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    public Rigidbody projectile;
-    public Transform barrelend;
-    public float firespeed;
+  private Animator anim;
+  public Rigidbody projectile;
+  public Transform barrelend;
+  public float firespeed;
+  int delay = 0;
+
+  void Start()
+  {
+    anim= GetComponent<Animator>();
+  }
 
     // Update is called once per frame
-    void Update()
+  void Update()
+  {
+    if (delay>0)
     {
-      if(Input.GetButtonDown("Fire1"))
-      {
-        Rigidbody projectileInstance;
-        projectileInstance= Instantiate(projectile, barrelend.position,barrelend.rotation) as Rigidbody;
-        projectileInstance.AddForce(barrelend.forward*firespeed);
-      }  
+      delay--;
     }
+    if(Input.GetButtonDown("Fire1"))
+    {
+      
+      
+      fire();
+      
+      
+      
+    } 
+    if (delay==0)
+    {
+      anim.SetBool("Fire",false);
+    } 
+    
+      
+
+  }
+  void fire()
+  {
+    if(delay==0)
+    {
+      Rigidbody projectileInstance;
+      projectileInstance= Instantiate(projectile, barrelend.position,barrelend.rotation) as Rigidbody;
+      projectileInstance.AddForce(barrelend.forward*firespeed);
+      anim.SetBool("Fire",true);
+      delay=21;
+    }
+  }
+
 }

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Ememy : MonoBehaviour
 {
-    
+    public GameObject hearts;
     public float speed;
-    public float despawntime;
+    public float despawntime=120f;
     private Transform target;
 
     public bool hungry;
-    
+    public bool heartSpawned;
     void Start()
     {
+        heartSpawned=false;
         hungry=true;
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
@@ -26,10 +27,17 @@ public class Ememy : MonoBehaviour
         }
         if(hungry==false)
         {
+            if(heartSpawned==false)
+            {
+                heartSpawned=true;
+                Instantiate (hearts);
+            }
+            
             despawntime--;
         }
         if (despawntime==0)
         {
+            Destroy(hearts);
             Destroy(gameObject);
         }
         
