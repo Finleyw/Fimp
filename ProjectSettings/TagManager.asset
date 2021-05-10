@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Spawn
   - Bad
+  - finish
   layers:
   - Default
   - TransparentFX
