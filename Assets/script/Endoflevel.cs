@@ -7,6 +7,7 @@ public class Endoflevel : MonoBehaviour
     public playermove finish;
     public GameObject score;
     public GameObject Screen;
+    bool spawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +17,13 @@ public class Endoflevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (finish.end==true)
+        if (spawn==false)
         {
-            Instantiate(Screen,transform);
+            if (finish.end==true)
+            {
+                Instantiate(Screen,transform);
+                spawn=true;
+            }
         }
     }
     

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class mouselook : MonoBehaviour
 {
+    public playermove finish;
 
     public float mouseSensitivity=100f;
 
@@ -19,6 +20,7 @@ public class mouselook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         float mouseX = Input.GetAxis("Mouse X")*mouseSensitivity*Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y")*mouseSensitivity*Time.deltaTime;
 
@@ -30,5 +32,10 @@ public class mouselook : MonoBehaviour
 
 
         transform.localRotation= Quaternion.Euler(xRotation,0f,0f);
+        if (finish.playing== false)
+        {
+            Cursor.lockState=CursorLockMode.None;
+ 
+        }
     }
 }

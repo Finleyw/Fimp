@@ -10,6 +10,7 @@ TagManager:
   - Spawn
   - Bad
   - finish
+  - finish2
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - goodwall
   - Spawn
   - Finish
-  - 
+  - finish2
   - 
   - 
   - 

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class playermove : MonoBehaviour
 {
+    
     public bool end;
     public Text speedcounter;
     public CharacterController controller;
@@ -16,28 +17,35 @@ public class playermove : MonoBehaviour
     public Transform wallcheck;
     public float grounddistance;
     public float walldistance;
-    public LayerMask finishmask;
+    
     public LayerMask groundmask;
     public LayerMask badwallmask;
     public LayerMask goodwallmask;
-
+    public bool touchingfinish;
     public float speed=1f;
     public string scene;
     Vector3 velocity;
-    bool touchingfinish;
+    
     bool isGrounded;
     bool deathwall;
     bool goodwall;
     bool backwards=false;
     int changedelay=0;
-    bool playing=true;
+    public bool playing=true;
     int Shortdelay=1;
+    private float nextActionTime = 0.0f;
+    public float period = 0.001f;
+
+    void Start()
+    {
+       
+    }
     void Update()
     {
-        Debug.Log("backwards= " + backwards);
+        //Debug.Log("backwards= " + backwards);
 
         Shortdelay++;
-        if (Shortdelay>1)
+        if(Shortdelay>1)
         {
             Shortdelay=1;
             end=false;
@@ -51,14 +59,13 @@ public class playermove : MonoBehaviour
 
         if(playing==true)
         {
-            print("change del=" + changedelay);
+            //print("change del=" + changedelay);
             speedcounter.text=speed.ToString();
             if(changedelay>0)
             {
                 changedelay--;
             }
 
-            touchingfinish= Physics.CheckSphere(groundcheck.position, grounddistance,finishmask);
             isGrounded= Physics.CheckSphere(groundcheck.position, grounddistance,groundmask);
             deathwall= Physics.CheckSphere(groundcheck.position, walldistance,badwallmask);
             goodwall=Physics.CheckSphere(groundcheck.position, walldistance,goodwallmask);
@@ -109,11 +116,10 @@ public class playermove : MonoBehaviour
             velocity.y += gravity*Time.deltaTime;
 
             controller.Move(velocity*Time.deltaTime);
+
+            Running();
             
-            if(Input.GetKey("w"))
-            {
-                speed=speed+0.01f;
-            }
+            
             
 
             //print("backw=" + backwards);
@@ -135,11 +141,21 @@ public class playermove : MonoBehaviour
 
         }
         if(Input.GetKey("r"))
-       {
+        {
             SceneManager.LoadScene(scene);
-  
-       }
+        }
         
+    }
+    void Running()
+    {
+        if (Time.time > nextActionTime ) 
+        {
+            nextActionTime= Time.time + period;
+            if(Input.GetKey("w"))
+            {
+                speed=speed+0.025f;
+            }
+        }    
     }
     
     void change()
@@ -157,8 +173,7 @@ public class playermove : MonoBehaviour
         
             
     }
-
-
+    
     
     
     

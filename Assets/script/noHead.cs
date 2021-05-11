@@ -20,7 +20,7 @@ public class noHead : MonoBehaviour
         if(script.hungry==false)
         {
             anim.SetBool("Fed",true);
-            Debug.Log("yep");
+            //Debug.Log("yep");
         }
     }
 }
