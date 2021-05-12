@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
   public Rigidbody projectile;
   public Transform barrelend;
   public float firespeed;
+  public playermove finish;
   int delay = 0;
 
   void Start()
@@ -18,25 +19,27 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
   void Update()
   {
-    if (delay>0)
-    {
-      delay--;
-    }
-    if(Input.GetButtonDown("Fire1"))
-    {
-      
-      
-      fire();
-      
-      
-      
-    } 
-    if (delay==0)
-    {
-      anim.SetBool("Fire",false);
-    } 
+    
+      if (delay>0)
+      {
+        delay--;
+      }
+      if(Input.GetButtonDown("Fire1"))
+      {
+        
+        
+        fire();
+        
+        
+        
+      } 
+      if (delay==0)
+      {
+        anim.SetBool("Fire",false);
+      } 
     
       
+        
 
   }
   void fire()

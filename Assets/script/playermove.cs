@@ -153,8 +153,11 @@ public class playermove : MonoBehaviour
             nextActionTime= Time.time + period;
             if(Input.GetKey("w"))
             {
-                speed=speed+0.025f;
-            }
+                if (speed<140f)
+                {
+                    speed=speed+0.025f;
+                }
+            }   
         }    
     }
     
