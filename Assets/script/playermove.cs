@@ -126,7 +126,6 @@ public class playermove : MonoBehaviour
 
             
 
-            velocity.z = backwards?-speed:speed;
 
             /*
             if( backwards == true )
@@ -158,7 +157,9 @@ public class playermove : MonoBehaviour
                     speed=speed+0.025f;
                 }
             }   
-        }    
+        }  
+        velocity.z = backwards?-speed:speed;
+
     }
     
     void change()

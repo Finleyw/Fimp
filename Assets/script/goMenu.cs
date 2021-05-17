@@ -25,4 +25,8 @@ public class goMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+    public void level1()
+    {
+        SceneManager.LoadScene("Game");
+    }
 }

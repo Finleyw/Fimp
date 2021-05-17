@@ -1607,18 +1607,6 @@ PrefabInstance:
       value: first person player fixed
       objectReference: {fileID: 0}
     - target: {fileID: 2531632168271882460, guid: 592f2a1a484ea0e469571e3e1d9707fb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 25.940212
-      objectReference: {fileID: 0}
-    - target: {fileID: 2531632168271882460, guid: 592f2a1a484ea0e469571e3e1d9707fb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 263.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 2531632168271882460, guid: 592f2a1a484ea0e469571e3e1d9707fb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 2860
-      objectReference: {fileID: 0}
-    - target: {fileID: 2531632168271882460, guid: 592f2a1a484ea0e469571e3e1d9707fb, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -1649,6 +1637,10 @@ PrefabInstance:
     - target: {fileID: 2531632168271882460, guid: 592f2a1a484ea0e469571e3e1d9707fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2531632168271882460, guid: 592f2a1a484ea0e469571e3e1d9707fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2531632168271882463, guid: 592f2a1a484ea0e469571e3e1d9707fb, type: 3}
       propertyPath: speedcounter
