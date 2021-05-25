@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class Onclick : MonoBehaviour, ISelectHandler , IPointerEnterHandler
+public class Onclick : MonoBehaviour//, ISelectHandler , IPointerEnterHandler
 {
-    public AudioManager sound;
+    /*public AudioManager sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +23,5 @@ public class Onclick : MonoBehaviour, ISelectHandler , IPointerEnterHandler
     
         print("selected");
         sound.Play("click");
-    }
+    }*/
 }
