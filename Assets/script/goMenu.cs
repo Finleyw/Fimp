@@ -20,9 +20,11 @@ public class goMenu : MonoBehaviour
     {
         Destroy(gameObject);
         SceneManager.LoadScene("Lv2");
+        print("Restart");
     }
     public void Menu()
     {
+        print("menu");
         SceneManager.LoadScene("Menu");
     }
     public void level1()

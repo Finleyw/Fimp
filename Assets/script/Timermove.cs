@@ -16,9 +16,9 @@ public class Timermove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (finish.end==true)
+//        if (finish.end==true)
         {
-            LeanTween.moveY(gameObject,0f,0f);
+         //   LeanTween.moveY(gameObject,0f,0f);
         }
     }
 }

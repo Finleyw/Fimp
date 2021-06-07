@@ -43,6 +43,10 @@ public class playermove : MonoBehaviour
     void Update()
     {
         //Debug.Log("backwards= " + backwards);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            touchingfinish=true;
+        }
 
         Shortdelay++;
         if(Shortdelay>1)
@@ -55,6 +59,11 @@ public class playermove : MonoBehaviour
             end=true;
             playing=false;
             Shortdelay=0;
+            
+            
+            
+
+            
         }
 
         if(playing==true)
@@ -178,7 +187,12 @@ public class playermove : MonoBehaviour
             
     }
     
-    
+    public void unpause()
+    {
+        playing=true;
+        end=false;
+        touchingfinish=false;
+    }
     
     
 }
