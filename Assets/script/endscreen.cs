@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class endscreen : MonoBehaviour
 {
+    public playermove playermove;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +21,21 @@ public class endscreen : MonoBehaviour
     {
         Destroy(gameObject);
         SceneManager.LoadScene("Game");
+        print("restart pressed");
     }
     public void Next()
     {
+        print("next pressed");
         SceneManager.LoadScene("Lv2");
+    }
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
+        
+    }
+    public void Destroy()
+    {
+        playermove.unpause();
+        Destroy(gameObject);
     }
 }
